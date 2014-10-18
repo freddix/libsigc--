@@ -1,19 +1,19 @@
 Summary:	The Typesafe Signal Framework for C++
 Name:		libsigc++
-Version:	2.2.11
+Version:	2.4.0
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.2/%{name}-%{version}.tar.xz
-# Source0-md5:	815d0c6d61601f51bbcaeef6826606b0
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.4/%{name}-%{version}.tar.xz
+# Source0-md5:	c6cd2259f5ef973e4c8178d0abbdbfa7
 URL:		http://libsigc.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	m4
-BuildRequires:	mm-common
+BuildRequires:	mm-common >= 0.9.7
 BuildRequires:	perl-base
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -62,6 +62,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT	\
 	libdocdir=%{_gtkdocdir}/libsigc++-2.0
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
